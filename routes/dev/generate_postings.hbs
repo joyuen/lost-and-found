@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Generate Postings</title>
+  </head>
+  <body>
+    <h2>Generate postings</h2>
+    <p>
+      Image IDs randomly retrieved from all the images saved to the server
+    </p>
+
+    <label for="num">Number:</label>
+    <input id="numposts" type="number" min="0" value="0" />
+    <button onclick="generatePosts(document.getElementById('numposts').value);">Generate</button>
+
+    <p>Number of postings as of loading this page: {{num_postings}}</p>
+    <p id="results"></p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      function generatePosts(num) {
+        $.post('./generate_postings/post', {'num': num}, function(data) {
+          console.log(data);
+          $("#results").text(JSON.stringify(data, null, 2));
+        });
+      }
+      
+      $(document).ready(function() {});
+    </script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+{{#> layout}}
+{{#*inline "head"}}
+<link rel="stylesheet" href="../css/viewpost.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{{/inline}}
+
+{{#*inline "content"}}
+<div class="flex">
+<div class="two-third">
+    <h2 id="title">{{post.title}}</h2>
+    <hr>
+    {{#if post.description}}
+        <p id="details" class="description">{{post.description}}</p>
+    {{else}}
+        <p id="details" class="no-description">No description provided</p>
+    {{/if}}
+    </p>
+    <table id="misctable">
+        <tr>
+            <th>
+                <p>Contact Info:</p>
+            </th>
+            <td>
+                <p>{{user.name}} <a href="mailto:{{user.email}}">(Contact them)</a></p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p>Post Created:</p>
+            </th>
+            <td>
+                <p>{{post.creationDate}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p>Item Type:</p>
+            </th>
+            <td>
+                <p>{{post.category}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p>ML image tags:</p>
+            </th>
+            <td>
+                <p>{{commaList post.tags}}</p>
+            </td>
+        </tr>
+    </table>
+    {{#if canreturn}}
+    <button id="returnButton" type="button">Mark As Returned</button>
+    <script>
+        document.getElementById("returnButton").onclick = function(e) {
+            var c = confirm('Confirm: the item has been returned? This action cannot be undone.');
+            if (c) {
+                $.post("/api/postings/{{post.id}}/return", {}, function(data) {
+                    window.location.reload(true);
+                });
+            }
+        };
+    </script>
+    {{/if}}
+    
+    {{#if cannotifyfound}}
+    <button id="foundButton" type="button">Notify Found</button>
+    <script>
+        document.getElementById("foundButton").onclick = function(e) {
+            $.post("/api/postings/{{post.id}}/found", {}, function(data) {
+                alert("A notification has been sent to the user who made this posting.");
+            }).fail(function(xhr, status, error) {
+                alert(`Something went wrong: ${xhr.status} ${xhr.statusText}: ${xhr.responseText}`);
+            });
+        };
+    </script>
+    {{/if}}
+
+    {{#if caneditpermissions}}
+    <form action="/api/postings/:{{post.id}}" id="deleteForm" method="post">
+        <button class="error" type="submit" form="deleteForm" onClick="return confirm('Are you sure?')">Delete</button>
+    </form>
+    {{/if}}
+</div>
+<div class="third sidebar">
+    {{!-- <div style="height: 300px; background-color: lightgreen;">
+                Small map goes here
+            </div> --}}
+    {{#if post.image_data}}
+    <center><img id="image" src="{{post.image_data}}"></img></center>
+    {{else}}
+    <div id="image_gone"><p>No image available!</p></div>
+    {{/if}}
+    <p id="summary">
+        <b>{{post.statusFull}}</b> at <b>{{post.campusFull}}</b> <br>
+        {{post.location}} <br>
+        {{post_date post.lostDate}}
+    </p>
+    <br>
+</div>
+
+</div>
+
+{{/inline}}
+{{/layout}}

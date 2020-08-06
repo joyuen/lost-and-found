@@ -1,0 +1,59 @@
+<form hidden id="content-form" action="api/postings" method="POST" enctype="multipart/form-data">
+  <div style="position: relative;"><a class="cancel-button">X</a></div>
+  <!-- FormSet serialize -->
+  <!-- If going with Ajax, remember to remove temp marker -->
+  <input type="hidden" id="lng" name="lng" />
+  <input type="hidden" id="lat" name="lat" />
+  <input type="hidden" id="campus" name="campus" />
+  <input type="hidden" id="postid" name="postid" />
+  <input type="hidden" id="timezone-offset" name="timezone-offset" />
+  <div>
+    <label for="title">Report title:</label>
+    <input type="text" id="title" name="title" maxlength="255" required />
+  </div>
+  <div class="flex one">
+    <label>Report Status:</label>
+    <label>
+      <input type="radio" id="lost" name="status" value="lost" checked required />
+      <span class="checkable">Lost</span>
+    </label>
+    <label>
+      <input type="radio" id="stolen" name="status" value="stolen" />
+      <span class="checkable">Stolen</span>
+    </label>
+    <label>
+      <input type="radio" id="found" name="status" value="found" />
+      <span class="checkable">Found</span>
+    </label>
+  </div>
+  <div>
+    <label for="item">Type of item:</label> <br>
+    <select id="item" name="item" required>
+      <option value="wallet">Wallet</option>
+      <option value="phone">Phone</option>
+      <option value="keys">Keys</option>
+      <option value="laptop">Laptop</option>
+      <option value="pencilCase">Pencil Case</option>
+      <option value="clothing">Clothing</option>
+      <option value="textbook">Textbook</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="date">Approximate time:</label><br>
+    <input type="datetime-local" id="datetime" name="date" required>
+  </div>
+  <div>
+    <label for="location">Extra location details:</label><br>
+    <input type="text" id="location" name="location" maxlength="255">
+  </div>
+  <div>
+    <label for="detail">Item Description:</label><br>
+    <textarea id="detail" name="detail" maxlength="2000"></textarea>
+  </div>
+  <div>
+    {{> image}}
+  </div>
+  <button class="submitbtn" id="submit-btn" type="button">Submit Report</button>
+</form>

@@ -1,0 +1,49 @@
+{
+  "name": "lost-and-found",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "startd": "nodemon server.js --ignore public/ --watch views/partials/*.*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://csil-git1.cs.surrey.sfu.ca/2020cmpt470/lost-and-found.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/vision": "^1.11.0",
+    "connect-mongodb-session": "^2.3.1",
+    "errorhandler": "^1.5.1",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "express-validator": "^6.4.0",
+    "handlebars": "^4.7.3",
+    "hbs": "^4.1.0",
+    "moment": "^2.24.0",
+    "mongo-sanitize": "^1.1.0",
+    "mongodb": "^3.5.4",
+    "mongoose": "^5.9.3",
+    "multer": "^1.4.2",
+    "node-sass-middleware": "^0.11.0",
+    "passport": "^0.4.1",
+    "passport-cas2": "0.0.11",
+    "picnic": "^6.5.2",
+    "regex-escape": "^3.4.9",
+    "uuid": "^7.0.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*",
+      "views/*.*",
+      "public/*"
+    ],
+    "delay": "10",
+    "ext": "js,json,hbs"
+  }
+}

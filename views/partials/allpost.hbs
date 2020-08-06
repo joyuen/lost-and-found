@@ -1,0 +1,98 @@
+<div id="all-post">
+  <!-- Add pagination https://codepen.io/harangue/pen/VeJowz -->
+  <!-- Display all posts -->
+  <!-- Make this a flexbox columns -->
+  <!-- Make items inside a flexbox -->
+  <div id="searchBox">
+    <form id="search">
+      {{!-- <span title="Use quotes &quot;text&quot; to force text to appear in search. Use minus -text to exclude text."><u>?</u></span> --}}
+      <input id="searchKeywords" name="keywords" placeholder="title/description keywords" type="text">
+      <select name="status">
+        <option value="">All</option>
+        <option value="lost">Lost</option>
+        <option value="found">Found</option>
+        <option value="stolen">Stolen</option>
+        <option value="returned">Returned</option>
+      </select>
+
+      <div id="advancedOptions">
+        <div class="advancedOptionsLabel">
+          <label for="category">Category: </label>
+        </div>
+        <div class="advancedOptionsObject">
+          <select name="category">
+            <option value="">Any</option>
+            <option value="wallet">Wallet</option>
+            <option value="phone">Phone</option>
+            <option value="keys">Keys</option>
+            <option value="laptop">Laptop</option>
+            <option value="pencilCase">Pencil Case</option>
+            <option value="clothing">Clothing</option>
+            <option value="textbook">Textbook</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="advancedOptionsLabel">
+          <label for="campus">Campus: </label>
+        </div>
+        <div class="advancedOptionsObject">
+          <select name="campus">
+            <option value="">Any</option>
+            <option value="burnaby">Burnaby Mountain Campus</option>
+            <option value="surrey">Surrey Central Campus</option>
+            <option value="vancouver">Vancouver Campus</option>
+          </select>
+        </div>
+        <div class="advancedOptionsLabel">
+          <label for="building">Building: </label>
+        </div>
+        <div class="advancedOptionsObject">
+          <input name="building" placeholder="building" type="text">
+        </div>
+
+
+        <div class="advancedOptionsLabel">
+          <label for="room">Room: </label>
+        </div>
+        <div class="advancedOptionsObject">
+          <input name="room" placeholder="room" type="text">
+        </div>
+
+        <div class="advancedOptionsLabel">
+          <label for="lostDate">Lost Date: </label>
+          {{!-- <select name="dateSelector">
+                                        <option value="lost">Lost Date:</option>
+                                        <option value="create">Create Date:</option>
+                                    </select> --}}
+        </div>
+        <div class="advancedOptionsObject">
+          <input name="lostDateRange" type="text">
+        </div>
+
+        {{!-- <div class="advancedOptionsLabel">
+                                    <label for="creationDate">Creation Date: </label>
+                                </div>
+                                <div class="advancedOptionsObject">
+                                    <input name="creationDateRange" type="text">
+                                </div>         --}}
+        </table>
+      </div>
+
+      <div id="formButtons">
+        <button id="showAdvanced">Show Advanced Options</button>
+        <button id="hideAdvanced">Hide Advanced Options</button>
+        <button type="submit">Search</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="pagehud">
+    <button id="pageLeft">&laquo;</button>
+    Page <span id="pageNum">0</span>/<span id="pageTotal">0</span>
+    <button id="pageRight">&raquo;</button>
+  </div>
+
+  <table id="postings">
+  </table>
+</div>

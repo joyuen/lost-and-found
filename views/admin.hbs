@@ -1,0 +1,87 @@
+{{#> layout}}
+{{#*inline "head"}}
+<script type="text/javascript" src="/js/admin.js"></script>
+<link rel="stylesheet" href="/css/account.css">
+{{/inline}}
+{{#*inline "content"}}
+{{#if user.admin}}
+<section class="flex one center">
+  <h1>Registered Users</h1>
+  <table class="primary">
+    <thead>
+      <tr>
+        <th>SFU ID</th>
+        <th>Display Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Admin</th>
+        <th />
+      </tr>
+    </thead>
+    <tbody>
+      {{#each users}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{name}}</td>
+        <td>{{email}}</td>
+        <td>{{phone}}</td>
+        <td>{{admin}}</td>
+        <td>
+          <label for="modal_{{id}}" class="button pseudo tooltip-left" data-tooltip="Edit user"><span
+              class="fas fa-user-edit"></span></label>
+          <div class="modal">
+            <input id="modal_{{id}}" type="checkbox" />
+            <label for="modal_{{id}}" class="overlay"></label>
+            <article>
+              <header>
+                <h3>Editing {{id}}</h3>
+                <label for="modal_{{id}}" class="close">&times;</label>
+              </header>
+              <section class="content">
+                <form id={{id}}>
+                  <label class="stack">Username
+                    <input type="text" value="{{id}}" disabled />
+                  </label>
+                  <label class="stack">Email
+                    <input type="text" value="{{email}}" disabled />
+                  </label>
+                  <label class="stack">Display Name
+                    <input type="text" name="name" id="name" value="{{name}}" />
+                  </label>
+                  <label class="stack">Phone Number (Optional)
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="{{phone}}">
+                    <span class="validity"></span>
+                    <small>Format: 123-456-7890</small>
+                  </label>
+                  <label>
+                    <input type="checkbox" name="admin" {{#if admin}} checked{{/if}}>
+                    <span class="checkable">Admin</span>
+                  </label>
+                </form>
+              </section>
+              <footer>
+                <button form="" class="button" type="button" onclick="updateUser('{{id}}')">Save</button>
+                <label for="modal_{{id}}" class="button dangerous">
+                  Cancel
+                </label>
+              </footer>
+            </article>
+          </div>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>
+{{else}}
+<section>
+  <h1 class="">
+    <span class="label error">Error</span>
+    You are not an admin. Normally you would get a 401 - Unauthorized. Enable admin?</h1>
+  <a id="sudo" class="button" href="/admin/sudo">sudo !!</a>
+  <a class="pseudo button" href="/">Cancel</a>
+</section>
+{{/if}}
+
+{{/inline}}
+{{/layout}}

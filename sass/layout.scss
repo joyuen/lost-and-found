@@ -1,0 +1,33 @@
+$sfu-dark-red: #A6192E;
+$sfu-red: #CC0633;
+$sfu-grey: #54585A;
+
+@import "node_modules/picnic/src/picnic.scss";
+
+nav {
+  position: absolute;
+  background-color: $sfu-dark-red;
+}
+
+nav a {
+  color: white;
+}
+
+nav .show:checked ~ .menu {
+  background-color: $sfu-dark-red;
+}
+
+main {
+  display: flex;
+  padding-top: 3em;
+  padding-left: 1em;
+  height: 100%;
+}
+
+.logout {
+  background: $sfu-red;
+}
+
+.submitbtn {
+    background-color: $sfu-red;
+}

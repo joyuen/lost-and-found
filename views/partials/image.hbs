@@ -1,0 +1,35 @@
+<div id="b64encoder">
+  <select id="mltags" name="tags" hidden multiple></select>
+
+  <h6 class="full">Using Machine Learning we identified some tags. Select all that apply:</h6>
+  <span id="labelres" class="flex two center grow" hidden>
+    {{!-- buttons are created here --}}
+  </span>
+
+  <div class="file has-name">
+    <label class="file-label">
+      <input class="file-input" type="file" name="resume">
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fas fa-upload"></i>
+        </span>
+        <span class="file-label">
+          (optional) Choose a photo…
+        </span>
+      </span>
+      <span class="file-name" id="b64name"></span>
+    </label>
+    <a href="javascript:;" id="b64reset" title="Reset form" hidden>Clear Photo</a>
+  </div>
+  <div id="b64errorbox" class="message is-danger">
+    <div class="message-header">
+      <p>Error</p>
+    </div>
+    <div class="message-body" id="b64error">
+    </div>
+  </div>
+  <figure class="image is-square" id="b64result">
+    <img alt="" id="b64result_image" src="" />
+  </figure>
+  <input id="b64image" name="b64image" type="hidden" value="">
+</div>

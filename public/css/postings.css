@@ -1,0 +1,108 @@
+/* #postings {
+    width: 100%;
+    border-spacing: 0px;
+} */
+
+.posting > td {
+    padding: .5em;
+}
+
+tr.posting {
+    border-bottom: groove;
+    border-bottom-width: thin;
+}
+tr.posting:first-child {
+    border-top: groove;
+    border-top-width: thin;
+}
+
+.posting {
+    min-width: 100%;
+    margin-bottom: 0px;
+    border: 1px solid rgb(165, 165, 165);
+    border-top: 0px;
+    padding-bottom: 0px;
+}
+
+.posting:nth-child(1) {
+    border-top: 1px solid rgb(165, 165, 165);
+}
+
+.posting.lost {
+    background-color: thistle;
+}
+.posting.stolen {
+    background-color: lightpink;
+}
+.posting.found {
+    background-color: lightblue;
+}
+.posting.returned {
+  background-color: lightgreen;
+}
+
+.posting-left {
+    padding: 2px 5px;
+    margin: 0px;
+    float: left;
+}
+
+.posting-right {
+    padding: 2px 5px;
+    margin: 0px;
+    float:right;
+    text-align: right;
+}
+/*
+.posting td:nth-child(1) {
+  width: 100px;
+  text-align: center;
+}
+.posting td:nth-child(2) {
+  width: auto;
+}
+.posting td:nth-child(3) {
+  width: 150px;
+  text-align: center;
+}
+.posting td:nth-child(4) {
+  width: 150px;
+  text-align: right;
+} */
+
+#searchBox {
+    display: block;         /* center form within screen */
+    text-align: center;     /* center form within screen */
+}
+
+#search {
+    display: inline-block;  /* center form within screen */
+}
+
+#searchKeywords {
+    min-width: 60%;
+}
+
+#advancedOptions {
+    display: grid;
+    grid-template-columns: 25% 70%;
+    column-gap: 10px;
+    margin: 10px;
+    align-items: center;
+}
+
+.advancedOptionsLabel {
+    text-align: right;
+}
+
+.advancedOptionsObject {
+    text-align: left;
+}
+
+.advancedOptionsObject select, .advancedOptionsObject input {
+    width: 100%;
+}
+
+#pagehud {
+    text-align: center;
+}

@@ -1,0 +1,137 @@
+main {
+    padding-left: 0px;
+}
+
+#map {
+    height: 100%;
+    width: auto;
+}
+
+#floating-panel {
+    margin: 10px;
+    height: 30px;
+    width: 60%;
+}
+
+#floating-panel button {
+    width: 100%;
+    background-color: white;
+    color: #646464;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px;
+}
+
+#floating-panel button:hover {
+    color: #303030;
+}
+
+#sidebar {
+    height: 100%;
+    text-align: left;
+    overflow: scroll;
+}
+
+.cancel-button {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+
+#post-img, #b64result_image {
+    max-width:100%;
+    max-height:100%;
+}
+
+/* .title-container {
+    font-size: 30px;
+    text-align: left;
+    background-color: #333;
+    color: white;
+    margin: 0;
+}
+
+.sfu-title {
+    font-family: inherit;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.sfu {
+    font-family: inherit;
+    color: #CC0633;
+    margin: 0;
+    padding: 0;
+}
+
+
+#content>form div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#content>div{
+    margin-top: 5px;
+}
+
+input, textarea, select {
+    margin-left: 5px;
+}
+
+#content label {
+    margin-left: 5px;
+}
+
+#overlay {
+    display: none;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+}
+
+.not-selected {
+    visibility: hidden;
+    display: none;
+}
+
+.selected {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    grid-template-columns: 400px minmax(0, 1fr);
+    grid-template-areas:
+        "zero two"
+        "one two";
+}
+
+.grid-zero {
+    grid-area: zero;
+}
+
+.grid-one {
+    grid-area: one;
+    overflow: scroll;
+}
+
+.grid-two {
+    grid-area: two;
+}
+
+.cancel-button {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+
+.edit-button {
+    width: 20%;
+}
+*/

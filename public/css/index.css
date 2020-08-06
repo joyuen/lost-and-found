@@ -1,0 +1,50 @@
+#notifs-bar {
+  padding-right: 10px;
+  {{!-- border-right: 1px solid grey; --}}
+}
+
+#notifs-header {
+  position: relative;
+}
+
+#notif-remove-all {
+  position: absolute;
+  color: grey;
+  font-size: 14px;
+  right: 0px;
+  bottom: 7px;
+}
+
+.padding-div {
+  padding: 0px 2.5px;
+}
+
+.notif {
+  margin-bottom: 5px;
+}
+
+.notif-message {
+  font-size: 14px;
+}
+
+.notif-sent {
+  font-size: 12px;
+  color: grey;
+}
+
+.notif-remove {
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#container {
+  flex-direction: column;
+}
+
+#stats {
+  margin-top: 20%;
+  flex-direction: row;
+  text-align: center;
+}

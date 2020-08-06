@@ -1,0 +1,42 @@
+{{#> layout}}
+{{#*inline "head"}}
+<link rel="stylesheet" href="/css/map.css">
+<link rel="stylesheet" href="../css/postings.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ejs@3.0.2/ejs.min.js"></script>
+
+<script type="text/javascript" src="/js/map.js"></script>
+<script type="text/javascript" src="/js/postings.js"></script>
+<script type="text/javascript" src="/js/b64.js"></script>
+{{/inline}}
+
+{{#*inline "content"}}
+<div class="flex two">
+  <div class="third" id="sidebar">
+    {{> allpost}}
+    {{> contentpost}}
+    {{> mapform}}
+  </div>
+  <div class="two-third">
+    <div id="floating-panel" class="flex four">
+      <div><button onclick="showBurnaby()">Burnaby</button></div>
+      <div><button onclick="showVancouver()">Vancouver</button></div>
+      <div><button onclick="showSurrey()">Surrey</button></div>
+      <div>
+        <button data-tooltip="Show a heatmap for all stolen items" class="tooltip-bottom">
+          <label>
+            <input id="heatmap" type="checkbox">
+            <span class="checkable">&#128293;Zones</span>
+          </label>
+        </button>
+      </div>
+    </div>
+    <div id="map"></div>
+  </div>
+</div>
+{{/inline}}
+{{/layout}}

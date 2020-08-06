@@ -1,0 +1,89 @@
+.sidebar {
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.post {
+    width: auto;
+    margin: 5px;
+}
+
+hr {
+    margin: 0px;
+}
+hr +p {
+    margin-top: 10px;
+}
+
+#misctable {
+    font-size: 12px;
+    border-collapse: collapse;
+    border: 1px solid #CCC;
+}
+
+#misctable th, #misctable td {
+    border: none;
+}
+
+#misctable th {
+    text-align: right;
+    padding-right: 5px;
+}
+
+#misctable p {
+    padding: 0px;
+    margin: 0px;
+}
+
+#misctable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+#misctable tr:nth-child(odd) {
+    background-color: #f8f8f8;
+}
+
+#title {
+    text-overflow: ellipsis; 
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+
+#summary {
+    text-align: center;
+    width: 100%;
+    background-color: lightblue;
+    margin: 0px;
+}
+
+#image {
+    max-width: 100%;
+    max-height: 50vh;
+    margin-bottom: 0px;
+}
+
+#image_gone {
+    width: 100%;
+    /* this sets the aspect ratio */
+    /* evenly split between top and bottom to center text */
+    padding-top: 25%;
+    padding-bottom: 25%;
+
+    text-align: center;
+    background: lightgray;
+    margin-bottom: 2px;
+
+    /* centers the text within */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#details {
+    min-height: 200px;
+    font-size: 14px;
+}
+
+.no-description {
+    font-style: italic;
+    color: darkgrey;
+}

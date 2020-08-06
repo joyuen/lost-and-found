@@ -1,0 +1,53 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build-image:
+  tags:
+    - docker-build
+  stage: build
+  variables:
+    REPOSITORY_NAME: darieni/cmpt470
+    IMAGE_TAG: $CI_COMMIT_SHORT_SHA
+  script:
+    - docker build -t $REPOSITORY_NAME:$IMAGE_TAG $CI_PROJECT_DIR
+    - docker tag $REPOSITORY_NAME:$IMAGE_TAG $REPOSITORY_NAME:latest-dev
+    - docker push $REPOSITORY_NAME:$IMAGE_TAG
+    - docker push $REPOSITORY_NAME:latest-dev
+
+build-master-image:
+  tags:
+    - docker-build
+  stage: build
+  variables:
+    REPOSITORY_NAME: darieni/cmpt470
+    IMAGE_TAG: $CI_COMMIT_SHORT_SHA
+  script:
+    - docker build -t $REPOSITORY_NAME:$IMAGE_TAG $CI_PROJECT_DIR
+    - docker tag $REPOSITORY_NAME:$IMAGE_TAG $REPOSITORY_NAME:latest
+    - docker push $REPOSITORY_NAME:$IMAGE_TAG
+    - docker push $REPOSITORY_NAME:latest
+  only:
+    refs:
+      - master
+
+deploy:
+  stage: deploy
+  image:
+    name: darieni/dropbear
+  variables:
+    REPOSITORY_NAME: darieni/cmpt470
+  script:
+    - ssh -y ubuntu@470.dpsi.jp "sudo docker pull darieni/cmpt470 && (sudo docker rm -f lost || true) && sudo docker run -eNODE_ENV=production -p 8000:8000 -d --name lost darieni/cmpt470"
+  only:
+    refs:
+      - master
+
+# test:
+#   stage: test
+#   image: 
+#     name: darieni/cmpt470:latest-dev
+#     entrypoint: [""]
+#   script:
+#     - npm run test
